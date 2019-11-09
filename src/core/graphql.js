@@ -6,8 +6,9 @@ import { helloWorldTypeDefs, helloWorldResolvers } from '~/hello-world/graphql';
 import { listTypeDefs, listResolvers } from '~/crud-operations/graphql';
 import authorization from '~/authorization/graphql';
 
-import { contactTypeDefs } from '../contactRoutes/Graphql/schema'
-import { contactResolvers } from '../contactRoutes/Graphql/resolvers'
+import { contactTypeDefs, contactResolvers } from '../Contact/graphql'
+// import { contactTypeDefs } from '../contactRoutes/Graphql/schema'
+// import { contactResolvers } from '../contactRoutes/Graphql/resolvers'
 
 
 const typeDefs = mergeTypes(

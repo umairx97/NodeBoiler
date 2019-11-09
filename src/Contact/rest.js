@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { ContactUs } from './Model/contact'
+import { ContactUs } from './document'
 import Joi from 'joi'
 import faker from 'faker';
 

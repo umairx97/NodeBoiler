@@ -3,7 +3,7 @@ import { Router } from 'express';
 import helloWorld from '~/hello-world/rest';
 import crudOperations from '~/crud-operations/rest';
 import authorization from '~/authorization/rest';
-import contactUs from '../contactRoutes/contact';
+import contactUs from '../Contact/rest';
 
 
 const router = Router();

@@ -1,4 +1,25 @@
-import { ContactUs } from '../Model/contact'
+import gql from 'graphql-tag';
+import { ContactUs } from './document'
+
+// import { List } from './document';
+
+export const contactTypeDefs = gql`
+  type Contact {
+    _id: ID
+    talkAbout: String
+    timeFrame: String
+    projectType: String
+    budget: String
+    description: String
+  
+  }
+
+  type Query {
+    Contact: [Contact]
+  }
+
+`;
+
 
 export const contactResolvers = {
 
@@ -20,3 +41,5 @@ export const contactResolvers = {
     },
 
 };
+
+
