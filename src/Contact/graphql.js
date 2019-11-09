@@ -1,9 +1,17 @@
 import gql from 'graphql-tag';
 import { ContactUs } from './document'
-
-// import { List } from './document';
+import redis from '../core/redis'
 
 export const contactTypeDefs = gql`
+
+type Requester {
+  name: String
+  companyName: String
+  email: String
+  phoneNumber: String
+}
+
+
   type Contact {
     _id: ID
     talkAbout: String
@@ -11,6 +19,7 @@ export const contactTypeDefs = gql`
     projectType: String
     budget: String
     description: String
+    requester: Requester
   
   }
 
@@ -23,22 +32,33 @@ export const contactTypeDefs = gql`
 
 export const contactResolvers = {
 
-    Query: {
-        async Contact(root, model, context) {
+  Query: {
+    async Contact(root, model, context) {
 
-            try {
-                const contact = await ContactUs.find({});
-                if (!contact.length) {
-                    throw new Error("No contact Found");
-                }
+      try {
+        const contact = await ContactUs.find({});
+        if (!contact.length) {
+          throw new Error("No contact Found");
+        }
 
-                return contact;
 
-            } catch (err) {
-                return Error(err.message)
-            }
-        },
+        return contact
+
+        // redis.set("contact", JSON.stringify(contact));
+        // redis.get("contact", function (err, result) {
+        //   if (err) {
+        //     return contact;
+        //   }
+
+        //   console.log(result)
+        // });
+
+
+      } catch (err) {
+        return Error(err.message)
+      }
     },
+  },
 
 };
 

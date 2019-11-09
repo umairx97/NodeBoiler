@@ -7,8 +7,6 @@ import { listTypeDefs, listResolvers } from '~/crud-operations/graphql';
 import authorization from '~/authorization/graphql';
 
 import { contactTypeDefs, contactResolvers } from '../Contact/graphql'
-// import { contactTypeDefs } from '../contactRoutes/Graphql/schema'
-// import { contactResolvers } from '../contactRoutes/Graphql/resolvers'
 
 
 const typeDefs = mergeTypes(
