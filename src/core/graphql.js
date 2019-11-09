@@ -6,8 +6,12 @@ import { helloWorldTypeDefs, helloWorldResolvers } from '~/hello-world/graphql';
 import { listTypeDefs, listResolvers } from '~/crud-operations/graphql';
 import authorization from '~/authorization/graphql';
 
+import { contactTypeDefs } from '../contactRoutes/Graphql/schema'
+import { contactResolvers } from '../contactRoutes/Graphql/resolvers'
+
+
 const typeDefs = mergeTypes(
-  [helloWorldTypeDefs, listTypeDefs, authorization.typeDefs],
+  [helloWorldTypeDefs, listTypeDefs, authorization.typeDefs, contactTypeDefs],
   {
     all: true,
   },
@@ -17,6 +21,7 @@ const resolvers = mergeResolvers([
   helloWorldResolvers,
   listResolvers,
   authorization.resolvers,
+  contactResolvers
 ]);
 
 const context = ({ req }) => {
