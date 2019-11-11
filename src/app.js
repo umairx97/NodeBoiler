@@ -63,10 +63,10 @@ if (STATIC_FILES) {
   const root = join(__dirname, `../${STATIC_FILES}`);
 
   // seo friendly
-  app.use(rendertron.makeMiddleware({ proxyUrl: RENDERTRON_URL }));
+  // app.use(rendertron.makeMiddleware({ proxyUrl: RENDERTRON_URL }));
 
   // serve static
-  app.use(express.static(root));
+  app.use("/meta/build", express.static(root));
 
   // spa friendly
   app.use(history('index.html', { root }));
